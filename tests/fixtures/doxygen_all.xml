@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Combined Doxygen fixtures: basic function, class, templated function, enums, templates, overloads, namespaces -->
+<doxygen>
+  <!-- basic function -->
+  <compounddef kind="file" id="file_example_8cpp">
+    <sectiondef kind="func">
+      <memberdef kind="function" id="add" prot="public" static="no" const="no">
+        <type>int</type>
+        <definition>int add(int a, int b)</definition>
+        <argsstring>(int a, int b)</argsstring>
+        <name>add</name>
+        <briefdescription>
+          <para>Add two integers.</para>
+        </briefdescription>
+        <detaileddescription>
+          <para>This function returns the sum of two integers.</para>
+          <para>Example usage:</para>
+          <programlisting>
+int result = add(2, 3);
+          </programlisting>
+          <simplesect kind="return">
+            <para>Sum of a and b.</para>
+          </simplesect>
+        </detaileddescription>
+        <param>
+          <type>int</type>
+          <declname>a</declname>
+          <briefdescription><para>First operand.</para></briefdescription>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+          <briefdescription><para>Second operand.</para></briefdescription>
+        </param>
+      </memberdef>
+    </sectiondef>
+  </compounddef>
+
+  <!-- class with templated member and enum -->
+  <compounddef kind="class" id="class_Math">
+    <compoundname>Math</compoundname>
+    <briefdescription>
+      <para>Utility math functions.</para>
+    </briefdescription>
+    <detaileddescription>
+      <para>Class providing math helpers.</para>
+    </detaileddescription>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" prot="public" id="max" static="no" const="no">
+        <type>int</type>
+        <definition>template &lt;typename T&gt; T Math::max(T a, T b)</definition>
+        <argsstring>(T a, T b)</argsstring>
+        <name>max</name>
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <briefdescription>
+          <para>Return the greater of two values.</para>
+        </briefdescription>
+        <detaileddescription>
+          <para>Compares two values and returns the larger one.</para>
+        </detaileddescription>
+        <param>
+          <type>T</type>
+          <declname>a</declname>
+          <briefdescription><para>First value.</para></briefdescription>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>b</declname>
+          <briefdescription><para>Second value.</para></briefdescription>
+        </param>
+      </memberdef>
+    </sectiondef>
+  </compounddef>
+
+  <compounddef kind="file" id="file_enum_8hpp">
+    <sectiondef kind="enumeration">
+      <enum>
+        <name>Color</name>
+        <briefdescription>
+          <para>Available colors.</para>
+        </briefdescription>
+        <enumvalue>
+          <name>Red</name>
+          <briefdescription><para>Represents red.</para></briefdescription>
+        </enumvalue>
+        <enumvalue>
+          <name>Green</name>
+          <briefdescription><para>Represents green.</para></briefdescription>
+        </enumvalue>
+      </enum>
+    </sectiondef>
+  </compounddef>
+
+  <!-- namespace with overloaded functions -->
+  <compounddef kind="namespace" id="ns_math">
+    <compoundname>math</compoundname>
+    <briefdescription>
+      <para>Math utilities namespace.</para>
+    </briefdescription>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="add_int" prot="public" static="no" const="no">
+        <type>int</type>
+        <definition>int math::add(int a, int b)</definition>
+        <argsstring>(int a, int b)</argsstring>
+        <name>add</name>
+        <briefdescription><para>Add integers.</para></briefdescription>
+        <param><type>int</type><declname>a</declname><briefdescription><para>First</para></briefdescription></param>
+        <param><type>int</type><declname>b</declname><briefdescription><para>Second</para></briefdescription></param>
+      </memberdef>
+      <memberdef kind="function" id="add_double" prot="public" static="no" const="no">
+        <type>double</type>
+        <definition>double math::add(double a, double b)</definition>
+        <argsstring>(double a, double b)</argsstring>
+        <name>add</name>
+        <briefdescription><para>Add doubles.</para></briefdescription>
+        <param><type>double</type><declname>a</declname><briefdescription><para>First</para></briefdescription></param>
+        <param><type>double</type><declname>b</declname><briefdescription><para>Second</para></briefdescription></param>
+      </memberdef>
+    </sectiondef>
+  </compounddef>
+
+  <!-- template function in file -->
+  <compounddef kind="file" id="file_template_8hpp">
+    <sectiondef kind="func">
+      <memberdef kind="function" id="tmpl" prot="public" static="no" const="no">
+        <type>T</type>
+        <definition>template &lt;typename T&gt; T tmpl(T v)</definition>
+        <argsstring>(T v)</argsstring>
+        <name>tmpl</name>
+        <templateparamlist>
+          <param><type>typename T</type></param>
+        </templateparamlist>
+        <briefdescription><para>Template example.</para></briefdescription>
+        <param><type>T</type><declname>v</declname><briefdescription><para>Value</para></briefdescription></param>
+      </memberdef>
+    </sectiondef>
+  </compounddef>
+
+</doxygen>
