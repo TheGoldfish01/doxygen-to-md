@@ -73,7 +73,6 @@ jobs:
           python -m pip install build
           python -m pip install .[test] || python -m pip install .
           python -m pip install -r requirements-dev.txt
-          python -m pip install pytest-cov
 
       - name: Run tests with coverage
         run: pytest --cov=src --cov-report=xml -q
@@ -83,3 +82,9 @@ jobs:
         with:
           name: coverage-xml
           path: coverage.xml
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: coverage.xml
