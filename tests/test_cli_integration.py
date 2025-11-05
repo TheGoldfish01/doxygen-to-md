@@ -1,7 +1,5 @@
-import shutil
 from pathlib import Path
 
-import pytest
 
 
 def _write_xml(path: Path, content: str) -> None:

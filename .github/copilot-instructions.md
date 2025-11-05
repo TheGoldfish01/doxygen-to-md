@@ -46,7 +46,7 @@ This file gives repository-specific guidance for GitHub Copilot (and other AI co
 - "Implement a parser function that converts Doxygen `@param` tags into a Markdown table. Add unit tests for normal and missing parameter cases."
 - "Refactor the `convert` function into smaller helpers: strip_comment_delimiters, parse_tags, to_markdown. Add tests for each helper."
 - "Add handling of code blocks: detect @code/@endcode and convert to fenced markdown code blocks. Include tests."
-- "Write a test that verifies that an empty string returns an empty string or an appropriate result." 
+- "Write a test that verifies that an empty string returns an empty string or an appropriate result."
 
 ## Example constraints to remind the assistant
 

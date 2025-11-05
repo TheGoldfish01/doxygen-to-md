@@ -6,13 +6,20 @@ import argparse
 import sys
 from pathlib import Path
 from xml.etree import ElementTree as ET
+
 from . import convert
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(prog="doxygen-to-md", description="Convert Doxygen comments to Markdown")
+    parser = argparse.ArgumentParser(
+        prog="doxygen-to-md", description="Convert Doxygen comments to Markdown"
+    )
     parser.add_argument("infile", nargs="?", help="Input file (defaults to stdin)")
-    parser.add_argument("--outdir", "-o", help="Output directory to write Markdown files when infile is a directory")
+    parser.add_argument(
+        "--outdir",
+        "-o",
+        help="Output directory to write Markdown files when infile is a directory",
+    )
     args = parser.parse_args(argv)
 
     if args.infile:
@@ -26,25 +33,30 @@ def main(argv: list[str] | None = None) -> int:
                 try:
                     md = convert(text)
                 except ValueError as e:
-                    print(f"Skipping {xml_file.name}: not valid Doxygen XML ({e})", file=sys.stderr)
+                    print(
+                        f"Skipping {xml_file.name}: not valid Doxygen XML ({e})",
+                        file=sys.stderr,
+                    )
                     continue
                 # determine namespace/module for grouping
                 try:
                     root = ET.fromstring(text)
-                    comp = root.find('compounddef')
-                    compname = (comp.findtext('compoundname') if comp is not None else '') or ''
+                    comp = root.find("compounddef")
+                    compname = (
+                        comp.findtext("compoundname") if comp is not None else ""
+                    ) or ""
                     compname = compname.strip()
-                    kind = comp.get('kind', '') if comp is not None else ''
+                    kind = comp.get("kind", "") if comp is not None else ""
                 except Exception:
-                    compname = ''
-                    kind = ''
+                    compname = ""
+                    kind = ""
 
-                if kind == 'namespace' and compname:
+                if kind == "namespace" and compname:
                     group = compname
-                elif '::' in compname:
-                    group = compname.split('::')[0]
+                elif "::" in compname:
+                    group = compname.split("::")[0]
                 else:
-                    group = 'global'
+                    group = "global"
 
                 group_dir = outdir.joinpath(group)
                 group_dir.mkdir(parents=True, exist_ok=True)
