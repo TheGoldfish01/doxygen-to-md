@@ -1,6 +1,6 @@
 # doxygen_to_md
 
-[![Lint](https://github.com/<OWNER>/<REPO>/actions/workflows/python-package.yml/badge.svg?branch=main)](https://github.com/<OWNER>/<REPO>/actions/workflows/python-package.yml)
+[![Lint](https://github.com/TheGoldfish01/doxygen-to-md/actions/workflows/python-package.yml/badge.svg?branch=main)](https://github.com/TheGoldfish01/doxygen-to-md/actions/workflows/python-package.yml)
 
 This project translates XML output from Doxygen into Markdown documentation source files for static website generation.
 
@@ -16,5 +16,3 @@ python -m pip install -e .
 python -m pip install -r requirements-dev.txt
 pytest -q
 ```
-
-Note: Replace <OWNER>/<REPO> in the badge URL above with your GitHub username and repository name so the badge points to your repository's workflow.
