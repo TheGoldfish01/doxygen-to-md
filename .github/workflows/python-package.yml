@@ -55,3 +55,31 @@ jobs:
 
       - name: Run tests
         run: pytest -q
+
+  coverage:
+    name: Coverage report
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install build
+          python -m pip install .[test] || python -m pip install .
+          python -m pip install -r requirements-dev.txt
+          python -m pip install pytest-cov
+
+      - name: Run tests with coverage
+        run: pytest --cov=src --cov-report=xml -q
+
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-xml
+          path: coverage.xml

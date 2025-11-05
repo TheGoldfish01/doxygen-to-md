@@ -1,0 +1,9 @@
+# CODEOWNERS file: assign code owners for important paths
+# Format: <pattern> <owner1> <owner2>
+
+# Owners for source code
+/src/ @TheGoldfish01
+
+# Owners for tests and CI
+/tests/ @TheGoldfish01
+/.github/workflows/ @TheGoldfish01
